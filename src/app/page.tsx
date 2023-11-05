@@ -12,6 +12,7 @@ export default function Home() {
         height={0}    
         sizes="100vw"
         style={{ width: '40%', height: 'auto' }}
+        loading="lazy"
       />
       <h2 className="text-2xl text-white-500 sm:text-2xl">Tuy nhiên, Website vẫn còn đang trong quá trình hoàn thiện.</h2>
       <p className="flex items-center">
