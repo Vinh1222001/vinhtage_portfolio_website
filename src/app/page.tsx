@@ -7,7 +7,7 @@ import WebsiteUnderConstruction from "@/components/WebsiteUnderConstruction";
 export default function Home() {
 
   return (
-    <main className="flex min-h-screen flex-col justify-between">
+    <main className="flex min-h-screen flex-col justify-between text-white">
       <WebsiteUnderConstruction/>
     </main>
   )
