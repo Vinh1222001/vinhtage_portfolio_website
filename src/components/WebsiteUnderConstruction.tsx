@@ -4,6 +4,7 @@ import Image from "next/image"
 
 //**************** IMPORT REACT ICON ******************//
 import { AiFillInstagram } from "react-icons/ai";
+import {FaRegCopyright} from "react-icons/fa"
 
 const LANGUAGE_CODE = {
     Vietnamese: "VNI",
@@ -16,7 +17,7 @@ const WebsiteUnderConstruction = () => {
   const [language,setLanguage] = useState(LANGUAGE_CODE.English)
 
   return (
-    <div className="flex gap-5 flex-col items-center justify-between P-24">
+    <div className="flex gap-5 flex-col items-stretch justify-between P-24">
 
         <div className="top-bar w-full px-10 py-5 flex justify-end">
 
@@ -78,6 +79,14 @@ const WebsiteUnderConstruction = () => {
                 "to view all my products."
                 }
             </p>
+        </div>
+
+        <div className="bottom-bar flex justify-center items-end">
+
+                <p className="copyright flex item-end gap-2 font-light text-slate-300 italic">
+
+                    Copyright <FaRegCopyright/> 2023 <b>Nguyen Tuan Vinh</b>          
+                </p>
         </div>
 
     </div>
