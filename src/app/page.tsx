@@ -16,7 +16,7 @@ export default function Home() {
       />
       <h2 className="text-2xl text-white-500 sm:text-2xl">Tuy nhiên, Website vẫn còn đang trong quá trình hoàn thiện.</h2>
       <p className="flex items-center">
-        Thay vào đó bạn có thể vào <a className="flex gap-2 cursor-pointer hover:bg-violet-600 active:bg-violet-700 px-1 py-1 br-10 rounded-md" href="https://www.instagram.com/vinhtage_0_spices/"><AiFillInstagram className="text-2xl"/> Instagram của tôi</a> để xem các sản phẩm của tôi.
+        Thay vào đó bạn có thể vào <a className="flex gap-2 cursor-pointer hover:bg-violet-600 active:bg-violet-700 px-1 py-1 br-10 rounded-md" href="https://www.instagram.com/vinhtage_0_spices/" target="_blank"><AiFillInstagram className="text-2xl"/> Instagram của tôi</a> để xem các sản phẩm của tôi.
       </p>
     </main>
   )
