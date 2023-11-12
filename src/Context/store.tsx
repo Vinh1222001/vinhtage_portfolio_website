@@ -68,7 +68,7 @@ const GlobalContext = createContext<ContextProps>({
     setAnimations: ():any[]=>[],
 })
 
-export const GlobalContextProvider = ({ children }) => {
+export const GlobalContextProvider = ({ children }:{children:any}) => {
     const [userId, setUserId] = useState('');
     const [data, setData] = useState<[] | DataType[]>([]);
 
