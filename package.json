@@ -2,6 +2,8 @@
   "name": "vinhtage_portfolio_website",
   "version": "0.1.0",
   "private": true,
+  "author": "Nguyen Tuan Vinh<nguyentuanvinh1222@gmail.com",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +11,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.38.4",
+    "dotenv": "^16.3.1",
+    "google-auth-library": "^9.2.0",
+    "googleapis": "^128.0.0",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
