@@ -59,11 +59,11 @@ const Projects = () => {
                                         setProjectType(prev=>type.type)
                                     }}
                                 >
-                                    <div className="w-full h-full blur-sm bg-center bg-fill brightness-40" style={{backgroundImage:`url(${type.type==="Animation"?animations[0].snippet.thumbnails.standard.url:media.filter(project=>project.type===type.type)[0]?.link})`,}}></div>
+                                    <div className="w-full h-full blur-sm bg-center bg-fill brightness-40" style={{backgroundImage:`url(${type.type==="Animation"?animations[0]?.snippet.thumbnails.standard.url:media.filter(project=>project.type===type.type)[0]?.link})`,}}></div>
                                     
                                     <Image
                                         className='object-cover brightness-40'
-                                        src={type.type==="Animation"?(animations[0].snippet.thumbnails.standard.url||"/avatar.jpg"):media.filter(project=>project.type===type.type)[0]?.link}
+                                        src={type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg"):media?.filter(project=>project.type===type.type)[0]?.link}
                                         alt="Web is building"
                                         // sizes="100vw"
                                         // layout="fill"

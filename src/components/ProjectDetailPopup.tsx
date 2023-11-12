@@ -52,13 +52,13 @@ const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, s
                             animations.find(
                                 (clip)=>
                                     clip.snippet.resourceId.videoId===currentProject.link
-                                ).snippet.thumbnails.standard.width
+                                )?.snippet.thumbnails.standard.width
                         } 
                         height={
                             animations.find(
                                 (clip)=>
                                     clip.snippet.resourceId.videoId===currentProject.link
-                                ).snippet.thumbnails.standard.height
+                                )?.snippet.thumbnails.standard.height
                         } 
                         src={`https://www.youtube.com/embed/${currentProject.link}`} 
                         title={currentProject.name} 
