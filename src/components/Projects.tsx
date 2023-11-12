@@ -34,14 +34,14 @@ const Projects = () => {
 
     const {media,animations} = useGlobalContext()
 
-    if (media.length === 0 || !media[0]?.link) {
-        return <div>Loading...</div>; // Or any other loading indicator
-    }
     const [projectListToggle,setProjectListToggle] = useState(false)  
     const [projectDetailToggle,setProjectDetailToggle]=useState(false)
     const [projectType,setProjectType]= useState("")
     const [projectId,setProjectId] =useState(0)
-  return (
+    if (media.length === 0 || !media[0]?.link) {
+        return <div>Loading...</div>; // Or any other loading indicator
+    }
+    return (
     <div className="w-full h-full overflow-hidden px-10">
         <div className={`w-full h-triple flex flex-col ${projectListToggle?"translate-y-up-1/3":""} ${projectDetailToggle?"translate-y-up-2/3":""} transition`}>
 
