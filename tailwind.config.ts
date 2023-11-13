@@ -78,6 +78,7 @@ const config: Config = {
         'left-1/2': '-50%',
       },
       boxShadow: {
+        '5xl': '0 0 10px rgba(0, 0, 0, 0.548)',
         'inner-xl': 'inset 0px 4px 6.7px 0px rgba(255, 255, 255, 0.50)',
       },      
       zIndex: {
@@ -85,7 +86,7 @@ const config: Config = {
       },
       borderRadius: {
         '4xl':"4.5rem"
-      }
+      },
 
     },
   },

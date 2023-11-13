@@ -17,9 +17,9 @@ const pageCodeValue =Object.values(pageCode)
 // console.log(pageIndex);
 
   return (
-    <div className="switch-page-right w-1/12 ">
+    <div className="switch-page-right w-1/12 h-full flex flex-row items-center justify-center">
     <button 
-      className="switch-page-button h-full w-full flex items-center justify-center cursor-pointer hover:bg-background-lighter-1 text-primary switch-page transition"
+      className="switch-page-button h-10/12 w-full flex items-center justify-center cursor-pointer hover:bg-background-lighter-1 text-primary switch-page transition"
       onClick={()=>{
         if (pageIndex>=pageCodeValue.length-1) {
             setPageIndex(prev=>0)

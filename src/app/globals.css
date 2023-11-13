@@ -85,6 +85,24 @@ body {
   color: white;
 }
 
+.page-toggle{
+  font-weight: 600;
+  transition: all 0.3s ease;
+  /* border-bottom: solid 2px var(--background); */
+}
+
+.page-active-toggle{
+  transition: all 0.3s ease;
+  /* border-bottom: solid 2px white; */
+}
+
+.page-active-toggle p{
+  transition: all 0.3s ease;
+  /* font-size: 1.6em; */
+  /* font-weight: 700; */
+  color: var(--primary);
+}
+
 .download-cv-btn{
   transition: all 0.3s ease-in;
 }
@@ -96,14 +114,6 @@ body {
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.336);
   transform: translateY(-5px);
   /* color: var(--seccondary); */
-}
-.view-products{
-  transition: all 0.3s ease-in;
-
-}
-.view-products:hover{
-  transition: all 0.3s ease-out;
-  padding-bottom: 5px;
 }
 
 .section-title{
@@ -146,3 +156,4 @@ body {
 
   transform: translateY(0%);
 }
+
