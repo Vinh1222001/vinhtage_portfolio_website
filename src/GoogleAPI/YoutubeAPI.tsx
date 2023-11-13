@@ -1,6 +1,6 @@
 export async function getVideoThumbnail(videoId: string) {
   const response = await fetch(
-    `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+    `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.GOOGLE_API_KEY||process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
   );
     
   const data = await response.json();
@@ -12,7 +12,7 @@ export async function getVideoThumbnail(videoId: string) {
 
 export async function getChannelVideos() {
   const channelResponse = await fetch(
-    `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+    `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${process.env.YOUTUBE_CHANNEL_ID||process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID}&key=${process.env.GOOGLE_API_KEY||process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
   );
   const channelData = await channelResponse.json();
 
@@ -20,7 +20,7 @@ export async function getChannelVideos() {
 
   if (uploadsPlaylistId) {
     const playlistResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&key=${process.env.GOOGLE_API_KEY||process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
     );
     const playlistData = await playlistResponse.json();
 
