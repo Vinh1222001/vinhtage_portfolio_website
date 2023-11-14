@@ -13,6 +13,7 @@ const Header = () => {
     const {language,setLanguage,languageCodes, page, setPage, pageCode,setPageIndex} = useGlobalContext();
 
     const [menuToggle,setMenuToggle] =useState(false)
+    
     const popupRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -34,14 +35,13 @@ const Header = () => {
 
   return (
     <header className="flex gap-5 flex w-full h-1/12 items-center justify-baseline lg:px-10">
-
-        <div className="hamberger-menu sm:hidden">
-
+        
+        <div ref={popupRef} className="hamberger-menu sm:hidden">
+            
             <button onClick={()=>setMenuToggle(!menuToggle)}>
                 <ImMenu className="text-3xl"/>
             </button>
-            <div 
-                ref={popupRef}
+            <div                 
                 className="overflow-hidden page-list flex flex-col bg-accent-lighter-3 text-background absolute z-50 py-2 gap-3 rounded-b-lg rounded-tr-lg drop-shadow-2xl"
                 style={menuToggle?{
                     
@@ -92,44 +92,45 @@ const Header = () => {
                 </div>
             </div>
         </div>
+
         <div className="page-list hidden sm:flex ">
-                <div className={`${page===pageCode.Overview?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
-                    onClick={()=>{
-                        setPageIndex(prev=>0)
-                        setPage(pageCode.Overview)
-                    }}>
-                    <p className="page-name text-lg text-background-lighter-3">
-                        Overview
-                    </p>
-                </div>
-                <div className={`${page===pageCode.Profile?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
-                    onClick={()=>{
-                        setPageIndex(prev=>1)
-                        setPage(pageCode.Profile)
-                    }}>
-                    <p className="page-name text-lg text-background-lighter-3">
-                        Profile
-                    </p>
-                </div>
-                <div className={`${page===pageCode.Skills?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
-                    onClick={()=>{
-                        setPageIndex(prev=>2)
-                        setPage(pageCode.Skills)
-                    }}>
-                    <p className="page-name text-lg text-background-lighter-3">
-                        Skills
-                    </p>
-                </div>
-                <div className={`${page===pageCode.Projects?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
-                    onClick={()=>{
-                        setPageIndex(prev=>3)
-                        setPage(pageCode.Projects)
-                    }}>
-                    <p className="page-name text-lg text-background-lighter-3">
-                        Projects
-                    </p>
-                </div>
+            <div className={`${page===pageCode.Overview?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
+                onClick={()=>{
+                    setPageIndex(prev=>0)
+                    setPage(pageCode.Overview)
+                }}>
+                <p className="page-name text-lg text-background-lighter-3">
+                    Overview
+                </p>
             </div>
+            <div className={`${page===pageCode.Profile?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
+                onClick={()=>{
+                    setPageIndex(prev=>1)
+                    setPage(pageCode.Profile)
+                }}>
+                <p className="page-name text-lg text-background-lighter-3">
+                    Profile
+                </p>
+            </div>
+            <div className={`${page===pageCode.Skills?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
+                onClick={()=>{
+                    setPageIndex(prev=>2)
+                    setPage(pageCode.Skills)
+                }}>
+                <p className="page-name text-lg text-background-lighter-3">
+                    Skills
+                </p>
+            </div>
+            <div className={`${page===pageCode.Projects?"page-active":""} page w-fit px-10 px-5 cursor-pointer`} 
+                onClick={()=>{
+                    setPageIndex(prev=>3)
+                    setPage(pageCode.Projects)
+                }}>
+                <p className="page-name text-lg text-background-lighter-3">
+                    Projects
+                </p>
+            </div>
+        </div>
 
         <div className="top-bar w-full flex justify-end">
 

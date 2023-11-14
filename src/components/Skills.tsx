@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import PointRange from './PointRange'
 
 type Skill = {
@@ -108,9 +108,9 @@ const Skills = () => {
     }
 
   return (
-    <div id='skill-page' className='w-full flex flex-row h-full px-10'>
+    <div id='skill-page' className='w-full flex flex-row h-full lg:px-10'>
         
-        <div id="side-bar" className="flex w-1/12 h-full">
+        <div id="side-bar" className="hidden md:flex w-1/12 h-full">
             <div id="section-list" className="w-full h-full flex">
                 <ul className='flex flex-col w-full h-full items-start'>
                     <li 
@@ -140,7 +140,7 @@ const Skills = () => {
                 </ul>
             </div>
         </div>
-        <div id="content-wrapper" className="w-11/12 h-full overflow-y-auto relative">
+        <div id="content-wrapper" className="w-full md:w-11/12 h-full overflow-y-auto relative">
             <div className="content-wrapper w-full flex flex-col justify-start gap-10 pl-2">
                 <section id="soft-skills" className='w-full flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
                         <div className="section-title w-fit">
@@ -150,7 +150,7 @@ const Skills = () => {
                             {
                                 SKILL_LIST.SoftSkills.map((skill,index)=>{
                                     return (
-                                        <div key={`soft-skill-${index}`} className="w-1/2 p-2">
+                                        <div key={`soft-skill-${index}`} className="w-full sm:w-1/2 p-2">
                                             <PointRange name={skill.name} point={skill.point}/>
                                         </div>
                                     )
@@ -166,7 +166,7 @@ const Skills = () => {
                             {
                                 SKILL_LIST.Applications.map((skill,index)=>{
                                     return (
-                                        <div key={`application-${index}`} className="w-1/2 p-2">
+                                        <div key={`application-${index}`} className="w-full sm:w-1/2 p-2">
                                             <PointRange name={skill.name} point={skill.point}/>
                                         </div>
                                     )
@@ -182,7 +182,7 @@ const Skills = () => {
                             {
                                 SKILL_LIST.Languages.map((skill,index)=>{
                                     return (
-                                        <div key={`languages-${index}`} className="w-1/2 p-2">
+                                        <div key={`languages-${index}`} className="w-full sm:w-1/2 p-2">
                                             <PointRange name={skill.name} point={skill.point}/>
                                         </div>
                                     )

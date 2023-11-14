@@ -42,12 +42,12 @@ const Projects = () => {
         return <div>Loading...</div>; // Or any other loading indicator
     }
     return (
-    <div className="w-full h-full overflow-hidden px-10">
+    <div className="w-full h-full overflow-hidden lg:px-10">
         <div className={`w-full h-triple flex flex-col ${projectListToggle?"translate-y-up-1/3":""} ${projectDetailToggle?"translate-y-up-2/3":""} transition`}>
 
             <div className="w-full h-1/3 flex flex-col items-center justify-center">
 
-                <div className="w-full h-10/12 grid gap-4 grid-cols-4">
+                <div className="w-full h-full md:h-7/12 lg:h-10/12 grid gap-4 grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1">
                     {
                         PROJECT_TYPE.map((type,index)=>{
                             return(

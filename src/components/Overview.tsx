@@ -15,9 +15,10 @@ const Overview = () => {
   return (
     <div id='overview-page' className='w-full flex flex-row flex-wrap lg:px-10 h-full overflow-y-auto'>
       <div id='overview-page-container' className='w-full flex flex-row flex-wrap md:items-center'>
-        <div className="avatar-photo w-full sm:w-2/5 flex flex-row sm:flex-col items-center sm:items-start md:items-start justify-center md:justify-center gap-2">
+        <div className="avatar-photo w-full sm:w-2/5 flex flex-row sm:flex-col items-center sm:items-start md:items-start justify-center md:justify-center gap-1">
+          
           <Image
-            className='rounded-full w-1/2 sm:w-11/12'
+            className='rounded-full w-5/12 sm:w-11/12'
             src='/avatar.jpg'
             alt="Web is building"
             width="0"  
@@ -27,13 +28,13 @@ const Overview = () => {
             // loading="lazy"
             priority={true}
           />
-          <span className="bottom-button flex md:hidden items-end justify-center sm:justify-start gap-1 flex-wrap">
-            <div className="basis-70 xl:basis-72">
+          <div className="bottom-button w-full flex md:hidden items-end justify-center sm:justify-start gap-2 flex-wrap">
+            <div className="basis-68 xl:basis-72">
 
-              <DownloadCVButton style='xl xl:text-2xl'/>
+              <DownloadCVButton style='text-sm sm:text-lg xl:text-2xl'/>
             </div>
             
-            <button className="basis-52 view-products flex flex-row items-center gap-1 text-lg xl:text-xl text-primary hover:text-accent justify-center"
+            <button className="basis-52 view-products flex flex-row items-center gap-1 text-sm sm:text-lg xl:text-xl text-primary hover:text-accent justify-center"
               onClick={()=>{
                 setPage(prev=>pageCode.Projects)
                 setPageIndex(prev=>3)
@@ -42,7 +43,7 @@ const Overview = () => {
               <p className='border-b-2 border-primary'>Go to view Projects</p>
               <PiArrowFatRightFill/>
             </button>
-          </span>
+          </div>
 
 
         </div>
@@ -61,7 +62,7 @@ const Overview = () => {
             I am capable of doing both <b className='text-seccondary'>2d and 3d projects</b>.
             </p>
           </span>
-          <span className="bottom-button hidden md:flex items-end gap-5 flex-wrap">
+          <div className="w-full bottom-button hidden md:flex items-end gap-5 flex-wrap">
             <div className="basis-70 xl:basis-72">
 
               <DownloadCVButton style='xl xl:text-2xl'/>
@@ -76,7 +77,7 @@ const Overview = () => {
               <p className='border-b-2 border-primary'>Go to view Projects</p>
               <PiArrowFatRightFill/>
             </button>
-          </span>
+          </div>
           <span className="contact flex flex-col gap-2 text-sm sm:text-lg xl:text-xl font-normal">
             <span className='hidden xl:block'>
               <p>Contact me:</p>

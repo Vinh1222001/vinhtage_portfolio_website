@@ -13,8 +13,7 @@ const SectionRendering = () => {
 
 //   const [language,setLanguage] = useState(languageCodes.English)
 
-    const {page,pageCode} = useGlobalContext();
-
+  const {page,pageCode} = useGlobalContext();
   switch (page) {
     case pageCode.Overview:
       return <Overview/>  

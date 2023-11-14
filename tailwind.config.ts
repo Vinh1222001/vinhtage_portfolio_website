@@ -52,7 +52,10 @@ const config: Config = {
       },
       height:{
         '1/12':'8.333333%',
+        '5/12':'41.666667%',
+        '7/12':'58.333333%',
         '10/12': '83.333333%',
+        '11/12':'91.666667%',
         'double':'200%',
         'triple':"300%",
       },
@@ -87,7 +90,12 @@ const config: Config = {
       borderRadius: {
         '4xl':"4.5rem"
       },
-
+      strokeWidth: {
+        '100': '100px',
+      },
+      spacing:{
+        '68':'17rem',
+      }
     },
   },
   plugins: [],

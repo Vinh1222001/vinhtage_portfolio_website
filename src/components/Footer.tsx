@@ -30,7 +30,7 @@ const Footer = () => {
   return (
     <footer className="flex w-full h-1/12 items-center justify-between lg:px-10 relative">
 
-      <div className="social-media-toggle absolute bottom-full right-0 sm:hidden">
+      <div ref={popupRef} className="social-media-toggle fixed bottom-10 right-7 sm:hidden">
         <button 
           className='absolute bottom-0 right-0 p-3 text-2xl bg-accent-lighter-3 rounded-full text-seccondary z-50 shadow-5xl'
           onClick={()=>setMenuToggle(!menuToggle)}
@@ -42,7 +42,7 @@ const Footer = () => {
         </button>
 
         <div 
-          ref={popupRef} 
+          
           className="overflow-hidden social-media-list flex flex-col items-center pt-3 gap-2 sm:hidden absolute right-0 bottom-0 w-12 rounded-full bg-accent-lighter-1 z-40"
           style={
             menuToggle?{
