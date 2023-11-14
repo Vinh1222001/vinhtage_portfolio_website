@@ -220,7 +220,7 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
             
         </div>
         <div id="project-list" className='w-full lg:w-9/12 h-full overflow-y-auto'>
-            <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 gap-5 px-2">
+            <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 gap-5 px-2 content-baseline">
                 {media.filter((item:any)=>categorySelected==="Tất cả"||item.category.split("; ").includes(categorySelected)).map((media:any,index:number)=>{
                     return(
 

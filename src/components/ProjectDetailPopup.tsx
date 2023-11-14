@@ -22,7 +22,7 @@ const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, s
     const currentProject=media.find((item)=>item.project_id===projectId)||{name:"Chưa có"}
     // console.log(animations);
 
-    const [detailToggle,setDetailToggle]=useState(true)
+    const [detailToggle,setDetailToggle]=useState(false)
     
   return (
    <div className="w-full h-1/3 bg-accent-lighter-3 flex flex-col sm:flex-row relative">

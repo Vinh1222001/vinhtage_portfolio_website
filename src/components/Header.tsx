@@ -42,7 +42,7 @@ const Header = () => {
                 <ImMenu className="text-3xl"/>
             </button>
             <div                 
-                className="overflow-hidden page-list flex flex-col bg-accent-lighter-3 text-background absolute z-50 py-2 gap-3 rounded-b-lg rounded-tr-lg drop-shadow-2xl"
+                className="overflow-hidden page-list flex flex-col bg-accent-lighter-3 text-background absolute z-1000 py-2 gap-3 rounded-b-lg rounded-tr-lg drop-shadow-2xl"
                 style={menuToggle?{
                     
                     opacity:"1",
