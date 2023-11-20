@@ -233,9 +233,9 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
                                         type==="Animation"?
                                         animations.find((clip)=>
                                             clip.snippet.resourceId.videoId===media.link
-                                        )?.snippet.thumbnails.standard.url
+                                        )?.snippet.thumbnails.standard.url||""
                                         :
-                                        media?.link
+                                        media?.link||""
                                     }
                                     alt="Web is building"
                                     // sizes="100vw"

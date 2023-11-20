@@ -63,8 +63,8 @@ const Projects = () => {
                                     
                                     <Image
                                         className='object-cover brightness-40'
-                                        src={type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg"):media?.filter(project=>project.type===type.type)[0]?.link}
-                                        alt="Web is building"
+                                        src={type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg")||"":media?.filter(project=>project.type===type.type)[0]?.link||""}
+                                        alt="Project type"
                                         // sizes="100vw"
                                         // layout="fill"
                                         priority={false}

@@ -1,13 +1,15 @@
 'use client'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 //**************** IMPORT REACT ICON ******************//
 import { useGlobalContext } from '@/Context/store';  
-import Overview from './Overview';
+import Overview from './Overview/Overview';
 import WebsiteUnderConstruction from './WebsiteUnderConstruction';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 import Skills from './Skills';
 import Projects from './Projects';
+import OverviewLoading from './Overview/OverviewLoading';
+import ProfileLoading from './Profile/ProfileLoading';
 
 const SectionRendering = () => {
 
@@ -16,9 +18,17 @@ const SectionRendering = () => {
   const {page,pageCode} = useGlobalContext();
   switch (page) {
     case pageCode.Overview:
-      return <Overview/>  
+      return (
+        <Suspense fallback={<OverviewLoading/>}>
+          <Overview/>
+        </Suspense>
+      )
     case pageCode.Profile:
-      return <Profile/>
+      return (
+        <Suspense fallback={<ProfileLoading/>}>
+          <Profile/>
+        </Suspense>
+      )
     case pageCode.Skills:
       return <Skills/>
     case pageCode.Projects:

@@ -5,7 +5,7 @@ import {PiArrowFatRightFill,PiDownloadFill} from "react-icons/pi"
 import {AiFillMail,AiFillPhone } from "react-icons/ai";
 
 import { useGlobalContext } from '@/Context/store'
-import DownloadCVButton from './DownloadCVButton';
+import DownloadCVButton from '../DownloadCVButton';
 const Overview = () => {
   const {language,languageCodes,setPage,pageCode,setPageIndex} =useGlobalContext();
   const handleEmailClick = () => {

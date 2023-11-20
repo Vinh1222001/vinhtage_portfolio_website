@@ -70,7 +70,7 @@ const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, s
                 }
             </div>
         </div>
-        <div id="project-detail" className='hidden h-full w-full sm:w-5/12 bg-background-lighter-1 sm:flex flex-col rounded-t-xl sm:rounded-l-xl shadow-l-harder overflow-hidden'>
+        <div id="project-detail" className='hidden h-full w-full sm:w-5/12 bg-background-lighter-1 sm:flex flex-col rounded-l-xl shadow-l-harder overflow-hidden'>
 
             <div className="detail w-full p-5 flex flex-col gap-2">
                 <div className="w-full hidden sm:flex justify-end">

@@ -10,7 +10,7 @@ import {BiSolidPalette,BiSolidMoviePlay} from "react-icons/bi"
 import {TbSportBillard} from "react-icons/tb"
 
 import { useGlobalContext } from '@/Context/store'
-import DownloadCVButton from './DownloadCVButton';
+import DownloadCVButton from '../DownloadCVButton';
 
 const JOB_TAG=["2D Artist", "3D Artist", "Web designer", "Figma", "Character Designer", "UI/UX Designer", "2D/3D Animator"]
 
