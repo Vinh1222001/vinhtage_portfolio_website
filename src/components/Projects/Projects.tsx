@@ -1,9 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import Image from 'next/image'
 import { useGlobalContext } from '@/Context/store'
-import {getVideoThumbnail } from '@/GoogleAPI/YoutubeAPI';
-import ProjectsDisplayer from './ProjectsDisplayer';
-import ProjectDetailPopup from './ProjectDetailPopup';
+import ProjectsDisplayer from '../ProjectsDisplayer';
+import ProjectDetailPopup from '../ProjectDetailPopup';
 
 type TYPE = {
     name: string;
@@ -29,6 +28,20 @@ const PROJECT_TYPE:TYPE[] =[
         type:"Artwork",
     }
 ]
+
+const blurDataURLGenerator = (imageUrl: string): string => {
+    // Chuỗi base64 của ảnh mờ PNG (giá trị mặc định)
+    let blurDataURL: string = 'data:image/png;base64,iVBORw0KGgoAAAANS...';
+  
+    // Kiểm tra định dạng thực của ảnh và cập nhật blurDataURL
+    if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.jpeg')) {
+      blurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgAB...';
+    } else if (imageUrl.endsWith('.svg')) {
+      blurDataURL = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0...';
+    }
+  
+    return blurDataURL;
+  };
 
 const Projects = () => {
 
@@ -76,6 +89,8 @@ const Projects = () => {
                                         }}
                                         fill={true}
                                         loading="lazy"
+                                        placeholder="blur"
+                                        blurDataURL={blurDataURLGenerator(type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg")||"":media?.filter(project=>project.type===type.type)[0]?.link||"")}
                                     />
                                     
                                     <div className="w-full h-full absolute top-0 right-0 z-50">

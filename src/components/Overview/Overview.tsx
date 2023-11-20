@@ -24,6 +24,8 @@ const Overview = () => {
             width="0"  
             height={0}    
             sizes="100vw"
+            placeholder='blur'
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgAB..."
             // style={{ width: '90%', height: 'auto' }}
             // loading="lazy"
             priority={true}

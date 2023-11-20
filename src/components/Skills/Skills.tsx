@@ -1,5 +1,5 @@
-import React from 'react'
-import PointRange from './PointRange'
+import React,{useState} from 'react'
+import PointRange from '../PointRange'
 
 type Skill = {
     name: string;
@@ -93,7 +93,7 @@ const SKILL_LIST: SkillList ={
 
 const Skills = () => {
 
-    // const [section,setSection] = useState("soft-skills")
+    const [section,setSection] = useState("0%")
 
     const AutoCrolltoSection=(section:string)=>{
         const element = document.getElementById(section);
@@ -107,42 +107,57 @@ const Skills = () => {
 
     }
 
+
   return (
-    <div id='skill-page' className='w-full flex flex-row h-full lg:px-10'>
+    <div id='skill-page' className='w-full flex flex-col h-full lg:px-10'>
         
-        <div id="side-bar" className="hidden md:flex w-1/12 h-full">
-            <div id="section-list" className="w-full h-full flex">
-                <ul className='flex flex-col w-full h-full items-start'>
+        <div id="side-bar" className="hidden md:flex w-full h-1/12 relative">
+            <div className="w-1/3 h-full bg-background-darker-2 rounded-t-xl"
+                style={{
+                    transform: `translateX(${section})`,
+                    transition: 'all 0.35s ease-in-out',
+                }}
+            >
+
+            </div>
+            <div id="section-list" className="w-full h-full flex absolute left-0 top-0">
+                <ul className='w-full h-full grid grid-cols-3 menu'>
                     <li 
-                        className='flex justify-center h-1/3 w-full items-center'
+                        className='flex justify-center w-full h-full items-center'
                     >
                         <button 
-                            className='flex  rotate-l-90 bg-primary whitespace-nowrap items-baseline h-fit px-5 py-3 rounded-full cursor-pointer font-bold'
-                            onClick={()=>AutoCrolltoSection("soft-skills")}
+                            className='w-full h-full flex whitespace-nowrap justify-center items-center rounded-full cursor-pointer font-bold'
+                            onClick={()=>{
+                                setSection("0%")
+                                AutoCrolltoSection("soft-skills")}}
                         >Kỹ năng mềm</button>
                     </li>
                     <li 
-                        className='flex justify-center h-1/3 w-full items-center'
+                        className='flex justify-center w-full h-full items-center'
                     >
                         <button 
-                            className='flex  rotate-l-90 bg-primary whitespace-nowrap items-baseline h-fit px-5 py-3 rounded-full cursor-pointer font-bold'
-                            onClick={()=>AutoCrolltoSection("applications")}
+                            className='w-full h-full flex whitespace-nowrap justify-center items-center rounded-full cursor-pointer font-bold'
+                            onClick={()=>{
+                                setSection("100%")
+                                AutoCrolltoSection("applications")}}
                         >Ứng dung/ Phần mềm</button>
                     </li>
                     <li 
-                        className='flex justify-center h-1/3 w-full items-center'
+                        className='flex justify-center w-full h-full items-center'
                     >
                         <button 
-                            className='flex  rotate-l-90 bg-primary whitespace-nowrap items-baseline h-fit px-5 py-3 rounded-full cursor-pointer font-bold'
-                            onClick={()=>AutoCrolltoSection("languages")}
+                            className='w-full h-full flex whitespace-nowrap justify-center items-center rounded-full cursor-pointer font-bold'
+                            onClick={()=>{
+                                setSection("200%")
+                                AutoCrolltoSection("languages")}}
                         >Ngôn ngữ</button>
                     </li>
                 </ul>
             </div>
         </div>
-        <div id="content-wrapper" className="w-full md:w-11/12 h-full overflow-y-auto relative">
-            <div className="content-wrapper w-full flex flex-col justify-start gap-10 pl-2">
-                <section id="soft-skills" className='w-full flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
+        <div id="content-wrapper" className="w-full h-11/12 overflow-y-auto relative">
+            <div className="content-wrapper w-full h-triple flex flex-col justify-start gap-10">
+                <section id="soft-skills" className='w-full min-h-1/3 flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
                         <div className="section-title w-fit">
                             <h2>Kỹ năng mềm</h2>
                         </div>
@@ -158,7 +173,7 @@ const Skills = () => {
                             }
                         </div>
                 </section>
-                <section id="applications" className='w-full flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
+                <section id="applications" className='w-full min-h-1/3 flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
                         <div className="section-title w-fit">
                             <h2>Ứng dung/ Phần mềm</h2>
                         </div>
@@ -174,7 +189,7 @@ const Skills = () => {
                             }
                         </div>
                 </section>
-                <section id="languages" className='w-full flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
+                <section id="languages" className='w-full min-h-1/3 flex flex-col gap-5 p-5 bg-background-darker-2 shadow-b-harder'>
                         <div className="section-title w-fit">
                             <h2>Ngôn ngữ/ Thư viện/ Frame work</h2>
                         </div>

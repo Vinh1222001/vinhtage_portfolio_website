@@ -17,11 +17,11 @@ const POINT_RANGE:Record<number,string>={
 
 const PointRange = ({ name, point }: { name: string; point: number }) => {
   return (
-    <div className='w-full rounded-md bg-background-lighter-1 p-4 shadow-b-harder'>
+    <div className='w-full min-h-12 rounded-md bg-background-lighter-1 p-4 shadow-b-harder'>
         <div className="w-full">
             <h3 className='font-bold'>{name}</h3>
         </div>
-        <div className="w-full">
+        <div className="w-full min-h-12">
             <Image
                 // className='rounded-full'
                 src={POINT_RANGE[point]}
@@ -31,6 +31,8 @@ const PointRange = ({ name, point }: { name: string; point: number }) => {
                 sizes="100vw"
                 style={{ width: '100%', height: 'auto' }}
                 loading="lazy"
+                placeholder='blur'
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0..."
             />
         </div>
     </div>

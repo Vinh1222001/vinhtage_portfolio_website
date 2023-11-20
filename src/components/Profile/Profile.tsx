@@ -231,9 +231,9 @@ const Profile = () => {
                         </div>
                         <div className="content w-full flex flex-col sm:flex-row items-center justify-start">
 
-                            <div className="avatar-photo w-7/12 sm:w-4/12 lg:w-3/12 flex items-start justify-start">
+                            <div className="avatar-photo w-7/12 aspect-square sm:w-4/12 lg:w-3/12 flex items-start justify-start">
                                 <Image
-                                // className='rounded-full'
+                                className='rounded-full sm:rounded-none'
                                 src='/avatar.jpg'
                                 alt="Web is building"
                                 width="0"  
@@ -241,6 +241,8 @@ const Profile = () => {
                                 sizes="100vw"
                                 style={{ width: '100%', height: 'auto' }}
                                 loading="lazy"
+                                placeholder='blur'
+                                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgAB..."
                                 />
                             </div>
 

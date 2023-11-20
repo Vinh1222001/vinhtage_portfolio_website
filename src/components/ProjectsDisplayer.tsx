@@ -36,6 +36,20 @@ type Media = {
     view: number;
 }
 
+const blurDataURLGenerator = (imageUrl: string): string => {
+    // Chuỗi base64 của ảnh mờ PNG (giá trị mặc định)
+    let blurDataURL: string = 'data:image/png;base64,iVBORw0KGgoAAAANS...';
+  
+    // Kiểm tra định dạng thực của ảnh và cập nhật blurDataURL
+    if (imageUrl.endsWith('.jpg') || imageUrl.endsWith('.jpeg')) {
+      blurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgAB...';
+    } else if (imageUrl.endsWith('.svg')) {
+      blurDataURL = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0...';
+    }
+  
+    return blurDataURL;
+  };
+
 const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,setProjectId}: {  toggle: boolean, setToggle: (value: boolean) => void,media:any,type:string,setProjectDetailToggle: (value: boolean) => void,setProjectId: (value: number) => void}) => {
 
     const {language,languageCodes,animations} =useGlobalContext()
@@ -249,6 +263,13 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
                                     }}
                                     fill={true}
                                     loading="lazy"
+                                    placeholder="blur"
+                                    blurDataURL={blurDataURLGenerator(type==="Animation"?
+                                    animations.find((clip)=>
+                                        clip.snippet.resourceId.videoId===media.link
+                                    )?.snippet.thumbnails.standard.url||""
+                                    :
+                                    media?.link||"")}
                                 />
 
                                 <div className="project-basic-infor-view w-full flex flex-col gap-2 absolute bottom-0 right-0 bg-white-opacity-7 shadow-t-lighter backdrop-blur-sm shadow-inner-xl p-2 text-background-darker-2 translate-y-full transition rounded-t-xl">

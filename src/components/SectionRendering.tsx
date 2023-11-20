@@ -6,10 +6,12 @@ import { useGlobalContext } from '@/Context/store';
 import Overview from './Overview/Overview';
 import WebsiteUnderConstruction from './WebsiteUnderConstruction';
 import Profile from './Profile/Profile';
-import Skills from './Skills';
-import Projects from './Projects';
+import Skills from './Skills/Skills';
+import Projects from './Projects/Projects';
 import OverviewLoading from './Overview/OverviewLoading';
 import ProfileLoading from './Profile/ProfileLoading';
+import SkillsLoading from './Skills/SkillLoading';
+import ProjectsLoading from './Projects/ProjectLoading';
 
 const SectionRendering = () => {
 
@@ -30,9 +32,18 @@ const SectionRendering = () => {
         </Suspense>
       )
     case pageCode.Skills:
-      return <Skills/>
+      return (
+        <Suspense fallback={<SkillsLoading/>}>
+          <Skills/>
+        </Suspense>
+      )
     case pageCode.Projects:
-      return <Projects/>
+      return(
+        <Suspense fallback={<ProfileLoading/>}>
+
+          <Projects/>
+        </Suspense>
+      ) 
   
     default:
       return (
