@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 
-import {PiArrowFatRightFill,PiDownloadFill} from "react-icons/pi"
+import {PiArrowFatRightFill} from "react-icons/pi"
 import {AiFillMail,AiFillPhone } from "react-icons/ai";
 
 import { useGlobalContext } from '@/Context/store'
 import DownloadCVButton from '../DownloadCVButton';
 const Overview = () => {
-  const {language,languageCodes,setPage,pageCode,setPageIndex} =useGlobalContext();
+  const {language,languageCodes,setPage,pageCode,setPageIndex} = useGlobalContext();
   const handleEmailClick = () => {
     const mailtoLink = `mailto:nguyentuanvinh1222@gmail.com`;
     window.open(mailtoLink, '_blank');
@@ -80,7 +80,7 @@ const Overview = () => {
               <PiArrowFatRightFill/>
             </button>
           </div>
-          <span className="contact flex flex-col gap-2 text-sm sm:text-lg xl:text-xl font-normal">
+          <div className="w-full contact flex flex-col gap-2 text-sm sm:text-lg xl:text-xl font-normal">
             <span className='hidden xl:block'>
               <p>Contact me:</p>
             </span>
@@ -95,7 +95,7 @@ const Overview = () => {
                 0793191854
               </div>
             </div>
-          </span>
+          </div>
         </div>
       </div>
     </div>

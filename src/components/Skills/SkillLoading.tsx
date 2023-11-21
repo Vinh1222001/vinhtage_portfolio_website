@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import PointRange from '../PointRange'
 
 type Skill = {
     name: string;

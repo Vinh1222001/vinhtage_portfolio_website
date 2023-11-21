@@ -1,15 +1,4 @@
-import React, { useState,useEffect,useRef } from 'react'
-import Image from 'next/image'
-
-import {PiArrowFatRightFill} from "react-icons/pi"
-import {AiFillMail,AiFillPhone,AiOutlineArrowRight,AiOutlineRight } from "react-icons/ai";
-import {FaBirthdayCake,FaVolleyballBall,FaGuitar} from "react-icons/fa"
-import {FaLocationDot} from "react-icons/fa6"
-import {BiSolidPalette,BiSolidMoviePlay} from "react-icons/bi"
-import {TbSportBillard} from "react-icons/tb"
-
-import { useGlobalContext } from '@/Context/store'
-import DownloadCVButton from '../DownloadCVButton';
+import React from 'react'
 
 const JOB_TAG=["2D Artist", "3D Artist", "Web designer", "Figma", "Character Designer", "UI/UX Designer", "2D/3D Animator"]
 

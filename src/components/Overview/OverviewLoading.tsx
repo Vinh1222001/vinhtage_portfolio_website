@@ -1,19 +1,7 @@
 import React from 'react'
 // import Image from 'next/image'
-
-import {PiArrowFatRightFill,PiDownloadFill} from "react-icons/pi"
-import {AiFillMail,AiFillPhone } from "react-icons/ai";
-
-import { useGlobalContext } from '@/Context/store'
-import DownloadCVButton from '../DownloadCVButton';
-
 const OverviewLoading = () => {
 
-    const {language,languageCodes,setPage,pageCode,setPageIndex} =useGlobalContext();
-  const handleEmailClick = () => {
-    const mailtoLink = `mailto:nguyentuanvinh1222@gmail.com`;
-    window.open(mailtoLink, '_blank');
-  };
   return (
     <div id='overview-page' className='w-full flex flex-row flex-wrap lg:px-10 h-full overflow-y-auto'>
       <div id='overview-page-container' className='w-full flex flex-row flex-wrap md:items-center'>

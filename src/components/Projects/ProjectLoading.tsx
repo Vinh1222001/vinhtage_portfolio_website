@@ -1,8 +1,4 @@
-import React,{useState} from 'react'
-import Image from 'next/image'
-import { useGlobalContext } from '@/Context/store'
-import ProjectsDisplayer from '../ProjectsDisplayer';
-import ProjectDetailPopup from '../ProjectDetailPopup';
+import React from 'react'
 
 type TYPE = {
     name: string;
