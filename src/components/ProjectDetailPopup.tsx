@@ -13,8 +13,8 @@ const APPLICATION_LOGO: Record<string, string>={
     "Illustrator":"/icons_illustrator.svg",
     "AEffect":"/icons_aftereffects.svg",
     "Premiere":"/icons_premiere.svg",
-    "Giấy":"/solar_pallete-2-bold.svg"
-    
+    "Giấy":"/solar_pallete-2-bold.svg",
+    "Krita":"/icons_krita.svg",
 }
 
 const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, setToggle: (value: boolean) => void,projectId:number}) => {
@@ -261,7 +261,7 @@ const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, s
                                                 <Image
                                                     className='object-cover drop-shadow-lg'
                                                     src={APPLICATION_LOGO[app]}
-                                                    alt="Web is building"
+                                                    alt="Appliction"
                                                     // sizes="100vw"
                                                     // layout="fill"
                                                     priority={false}
