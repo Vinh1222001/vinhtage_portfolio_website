@@ -18,9 +18,9 @@ const APPLICATION_LOGO: Record<string, string>={
 }
 
 const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, setToggle: (value: boolean) => void,projectId:number}) => {
-    const {media,animations,language,languageCodes} =useGlobalContext()
-    const currentProject=media.find((item)=>item.project_id===projectId)||{name:"Chưa có"}
-    // console.log(animations);
+    const {animations,language,languageCodes,projects} =useGlobalContext()
+    let currentProject=projects?.find((item)=>item.id===projectId)||{name:"Chưa có"}
+    console.log(currentProject);
 
     const [detailToggle,setDetailToggle]=useState(false)
     
@@ -34,9 +34,9 @@ const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, s
                     <Image
                         className='object-cover drop-shadow-lg p-2'
                         src={
-                            currentProject.link
+                            currentProject?.media[0].link||"/avatar.jpg"
                         }
-                        alt="Web is building"
+                        alt="Project's thumnail"
                         // sizes="100vw"
                         // layout="fill"
                         priority={false}
@@ -53,16 +53,16 @@ const ProjectDetailPopup = ({toggle,setToggle, projectId}: {  toggle: boolean, s
                         width={
                             animations.find(
                                 (clip)=>
-                                    clip.snippet.resourceId.videoId===currentProject.link
+                                    clip.snippet.resourceId.videoId===currentProject?.media[0].link
                                 )?.snippet.thumbnails.standard.width
                         } 
                         height={
                             animations.find(
                                 (clip)=>
-                                    clip.snippet.resourceId.videoId===currentProject.link
+                                    clip.snippet.resourceId.videoId===currentProject?.media[0].link
                                 )?.snippet.thumbnails.standard.height
                         } 
-                        src={`https://www.youtube.com/embed/${currentProject.link}`} 
+                        src={`https://www.youtube.com/embed/${currentProject.media[0].link}`} 
                         title={currentProject.name} 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share">
 

@@ -2,6 +2,7 @@
 
 import { GetAllAnimation } from "@/Database/Controller/AnimationController";
 import { GetAllMedias } from "@/Database/Controller/MediaController";
+import { GetAllProjects } from "@/Database/Controller/ProjectsController";
 import { createContext, useContext, Dispatch, SetStateAction, useState, useEffect } from "react";
 
 type DataType = {
@@ -42,6 +43,9 @@ interface ContextProps {
 
     animations: any[],
     setAnimations: Dispatch<SetStateAction<any[]>>,
+
+    projects: any[],
+    setProjects: Dispatch<SetStateAction<any[]>>,
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -66,6 +70,9 @@ const GlobalContext = createContext<ContextProps>({
 
     animations:[],
     setAnimations: ():any[]=>[],
+
+    projects: [],
+    setProjects: ():any[]=>[],
 })
 
 export const GlobalContextProvider = ({ children }:{children:any}) => {
@@ -84,9 +91,12 @@ export const GlobalContextProvider = ({ children }:{children:any}) => {
 
     const [animations,setAnimations] =useState<any[]>([])
 
+    const [projects,setProjects]= useState<any[]>([])
+
     useEffect(()=>{
         GetAllMedias(setMedia)
         GetAllAnimation(setAnimations)
+        GetAllProjects(setProjects)
     },[])
     
     return (
@@ -99,7 +109,8 @@ export const GlobalContextProvider = ({ children }:{children:any}) => {
                 page, setPage, pageCode,
                 pageIndex,setPageIndex,
                 media,setMedia,
-                animations,setAnimations 
+                animations,setAnimations,
+                projects,setProjects 
             }}
         
         >

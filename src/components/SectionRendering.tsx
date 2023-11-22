@@ -14,8 +14,6 @@ const OverviewLoading =dynamic(()=>import('./Overview/OverviewLoading'))
 const ProfileLoading =dynamic(()=>import('./Profile/ProfileLoading')) 
 const SkillsLoading =dynamic(()=>import('./Skills/SkillLoading')) 
 
-const Header =dynamic(()=>import('./Header')) 
-const Footer =dynamic(()=>import('./Footer')) 
 const SwitchPageLeft =dynamic(()=>import('./SwitchPageLeft')) 
 const SwitchPageRight =dynamic(()=>import('./SwitchPageRight')) 
 
@@ -59,15 +57,13 @@ const Generator=()=>{
 const SectionRendering = () => {
 
   return(
-    <div className="flex flex-wrap min-h-screen h-full w-full justify-center text-white">
+    <div className="flex flex-wrap h-full w-full justify-center text-white">
       <SwitchPageLeft/>
-      <div className="main-wrapper w-10/12 h-full relative h-full flex flex-col items-stretch">
+      <div className="main-wrapper w-10/12 h-full relative h-full flex flex-col items-center">
 
-        <Header/>
-        <div className="w-full h-10/12 flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center">
           {Generator()}
         </div>
-        <Footer/>
       </div>
       <SwitchPageRight/>
     </div>

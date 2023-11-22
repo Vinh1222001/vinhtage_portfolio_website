@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link';
 import React,{useState,useRef,useEffect} from 'react'
 
@@ -27,7 +28,7 @@ const Footer = () => {
       };
     }, [menuToggle]);
   return (
-    <footer className="flex w-full h-1/12 items-center justify-between lg:px-10 relative">
+    <footer className="flex w-10/12 h-1/12 items-center justify-between relative">
 
       <div ref={popupRef} className="social-media-toggle fixed bottom-10 right-7 sm:hidden">
         <button 

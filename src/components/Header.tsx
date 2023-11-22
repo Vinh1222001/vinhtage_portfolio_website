@@ -1,3 +1,4 @@
+'use client'
 import React,{useState,useRef, useEffect} from 'react'
 
 //**************** IMPORT REACT ICON ******************//
@@ -33,7 +34,7 @@ const Header = () => {
       }, [menuToggle]);
 
   return (
-    <header className="flex gap-5 flex w-full h-1/12 items-center justify-baseline lg:px-10">
+    <header className="flex gap-5 flex w-10/12 h-1/12 items-center justify-baseline">
         
         <div ref={popupRef} className="hamberger-menu sm:hidden">
             

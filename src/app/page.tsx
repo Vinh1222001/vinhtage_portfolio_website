@@ -3,7 +3,7 @@ import WebsiteUnderConstruction from "@/components/WebsiteUnderConstruction";
 import dynamic from "next/dynamic";
 import React, { Suspense } from "react";
 
-const SectionRendering = dynamic(()=>import('@/components/SectionRendering'))
+const SectionRendering = dynamic(()=>import('@/components/SectionRendering'),{ssr:false})
 
 // import { redirect } from "next/navigation";
 

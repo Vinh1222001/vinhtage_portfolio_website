@@ -51,7 +51,7 @@ const blurDataURLGenerator = (imageUrl: string): string => {
     return blurDataURL;
   };
 
-const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,setProjectId}: {  toggle: boolean, setToggle: (value: boolean) => void,media:any,type:string,setProjectDetailToggle: (value: boolean) => void,setProjectId: (value: number) => void}) => {
+const ProjectsDisplayer = ({toggle,setToggle,projects,type,setProjectDetailToggle,setProjectId}: {  toggle: boolean, setToggle: (value: boolean) => void,projects:any,type:string,setProjectDetailToggle: (value: boolean) => void,setProjectId: (value: number) => void}) => {
 
     const {language,languageCodes,animations} =useGlobalContext()
     const [dimension,setDimension] =useState("2D")
@@ -82,7 +82,7 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
       }, [categoryToggle]);
 
     const getUniqueCategories = (): string[] => {
-        const allCategories = media.reduce((categories: string[], item:Media) => {
+        const allCategories = projects.reduce((categories: string[], item:Media) => {
             const itemCategories = item.category.split(';').map((category:any) => category.trim());
             return categories.concat(itemCategories);
         }, []);
@@ -236,7 +236,7 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
         </div>
         <div id="project-list" className='w-full lg:w-9/12 h-full overflow-y-auto'>
             <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 gap-5 px-2 content-baseline">
-                {media.filter((item:any)=>categorySelected==="Tất cả"||item.category.split("; ").includes(categorySelected)).map((media:any,index:number)=>{
+                {projects.filter((item:any)=>categorySelected==="Tất cả"||item.category.split("; ").includes(categorySelected)).map((project:any,index:number)=>{
                     return(
 
                         <button key={`project-view-${index}`} className="project-view-box w-full aspect-square bg-accent-lighter-3 shadow-rb-harder rounded-md text-black">
@@ -247,10 +247,10 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
                                     src={
                                         type==="Animation"?
                                         animations.find((clip)=>
-                                            clip.snippet.resourceId.videoId===media.link
+                                            clip.snippet.resourceId.videoId===project?.media[0].link
                                         )?.snippet.thumbnails.standard.url||""
                                         :
-                                        media?.link||""
+                                        project?.media[0].link||""
                                     }
                                     alt="Web is building"
                                     // sizes="100vw"
@@ -267,10 +267,10 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
                                     placeholder="blur"
                                     blurDataURL={blurDataURLGenerator(type==="Animation"?
                                     animations.find((clip)=>
-                                        clip.snippet.resourceId.videoId===media.link
+                                        clip.snippet.resourceId.videoId===project?.media[0].link
                                     )?.snippet.thumbnails.standard.url||""
                                     :
-                                    media?.link||"")}
+                                    project?.media[0].link||"")}
                                 />
 
                                 <div className="project-basic-infor-view w-full flex flex-col gap-2 absolute bottom-0 right-0 bg-white-opacity-7 shadow-t-lighter backdrop-blur-sm shadow-inner-xl p-2 text-background-darker-2 translate-y-full transition rounded-t-xl">
@@ -278,7 +278,7 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
                                     <button 
                                         className='w-full' 
                                         onClick={()=>{
-                                            setProjectId(media.project_id)
+                                            setProjectId(project.id)
                                             setProjectDetailToggle(true)
                                         }}
                                     >
@@ -287,15 +287,15 @@ const ProjectsDisplayer = ({toggle,setToggle,media,type,setProjectDetailToggle,s
                                         
                                         <span className="project-basic-infor">
                                             <span className="text-sm sm:text-base project-name font-bold text-primary">
-                                                <p>{media.name}</p>
+                                                <p>{project.name}</p>
                                             </span>
                                             <span className="text-sm sm:text-base project-duration">
-                                                <p>Thời gian: {media.duration} giờ</p>
+                                                <p>Thời gian: {project.duration} giờ</p>
                                             </span>
                                         </span>
                                         <div className="w-full grid grid-cols-4 gap-2">
                                             {
-                                                media.application.split("; ").map((app:string,index:any)=>{
+                                                project.application.split("; ").map((app:string,index:any)=>{
                                                     return(
                                                         <div key={`application-${index}`} className="w-full aspect-square relative">
                                                             <Image

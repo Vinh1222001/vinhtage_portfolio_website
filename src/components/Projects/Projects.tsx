@@ -45,15 +45,18 @@ const blurDataURLGenerator = (imageUrl: string): string => {
 
 const Projects = () => {
 
-    const {media,animations} = useGlobalContext()
+    const {animations,projects} = useGlobalContext()
 
     const [projectListToggle,setProjectListToggle] = useState(false)  
     const [projectDetailToggle,setProjectDetailToggle]=useState(false)
     const [projectType,setProjectType]= useState("")
-    const [projectId,setProjectId] =useState(0)
-    if (media.length === 0 || !media[0]?.link) {
+    const [projectId,setProjectId] =useState(1000)
+    if (projects.length === 0 || !projects[0]?.link) {
         return <div>Loading...</div>; // Or any other loading indicator
     }
+
+    // console.log(projects);
+    
     return (
     <div className="w-full h-full overflow-hidden lg:px-10">
         <div className={`w-full h-triple flex flex-col ${projectListToggle?"translate-y-up-1/3":""} ${projectDetailToggle?"translate-y-up-2/3":""} transition`}>
@@ -72,11 +75,11 @@ const Projects = () => {
                                         setProjectType(prev=>type.type)
                                     }}
                                 >
-                                    <div className="w-full h-full blur-sm bg-center bg-fill brightness-40" style={{backgroundImage:`url(${type.type==="Animation"?animations[0]?.snippet.thumbnails.standard.url:media.filter(project=>project.type===type.type)[0]?.link})`,}}></div>
+                                    <div className="w-full h-full blur-sm bg-center bg-fill brightness-40" style={{backgroundImage:`url(${type.type==="Animation"?animations[0]?.snippet.thumbnails.standard.url:projects.filter(project=>project.type===type.type)[0]?.link})`,}}></div>
                                     
                                     <Image
                                         className='object-cover brightness-40'
-                                        src={type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg")||"":media?.filter(project=>project.type===type.type)[0]?.link||""}
+                                        src={type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg")||"":projects?.filter(project=>project.type===type.type)[0]?.link||""}
                                         alt="Project type"
                                         // sizes="100vw"
                                         // layout="fill"
@@ -90,7 +93,7 @@ const Projects = () => {
                                         fill={true}
                                         loading="lazy"
                                         placeholder="blur"
-                                        blurDataURL={blurDataURLGenerator(type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg")||"":media?.filter(project=>project.type===type.type)[0]?.link||"")}
+                                        blurDataURL={blurDataURLGenerator(type.type==="Animation"?(animations[0]?.snippet.thumbnails.standard.url||"/avatar.jpg")||"":projects?.filter(project=>project.type===type.type)[0]?.link||"")}
                                     />
                                     
                                     <div className="w-full h-full absolute top-0 right-0 z-50">
@@ -110,7 +113,7 @@ const Projects = () => {
 
             <ProjectsDisplayer 
                 toggle={projectListToggle} setToggle={setProjectListToggle} 
-                media={media.filter(type=>type.type===projectType)} 
+                projects={projects.filter(type=>type.type===projectType)} 
                 type={projectType} 
                 setProjectDetailToggle={setProjectDetailToggle}
                 setProjectId={setProjectId}

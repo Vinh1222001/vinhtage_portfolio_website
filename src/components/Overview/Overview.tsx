@@ -14,7 +14,7 @@ const Overview = () => {
   };
   return (
     <div id='overview-page' className='w-full flex flex-row flex-wrap lg:px-10 h-full overflow-y-auto'>
-      <div id='overview-page-container' className='w-full flex flex-row flex-wrap md:items-center'>
+      <div id='overview-page-container' className='w-full h-full flex flex-row flex-wrap md:items-center'>
         <div className="avatar-photo w-full sm:w-2/5 flex flex-row sm:flex-col items-center sm:items-start md:items-start justify-center md:justify-center gap-1">
           
           <Image
