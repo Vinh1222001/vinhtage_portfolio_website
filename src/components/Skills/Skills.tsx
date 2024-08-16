@@ -99,9 +99,9 @@ const Skills = () => {
         const element = document.getElementById(section);
         if (element) {
             element.scrollIntoView({
-                behavior: 'smooth', // 'auto' nếu bạn không muốn hiệu ứng cuộn mượt
-                block: 'start', // 'center', 'end', hoặc 'nearest'
-                inline: 'start' // 'center', 'end', hoặc 'nearest'
+                behavior: 'smooth', 
+                block: 'start', 
+                inline: 'start' 
             });
         }
 
